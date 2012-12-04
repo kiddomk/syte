@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Every social things abt hipster coder and entrepreneur Jun G Seki. Stalk him at @j_g_seki" />
+  <meta name="description" content="Every social things abt Hipster, Hacker and Hustler Jun G Seki. Stalk him at @j_g_seki" />
   <meta name="keywords" content="Jun Seki,jseki,j_g_seki, developer, entrepreneur, hipster,coder,geek,poq,poqstudio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block pagetitle %}Jun [Jun G Seki]{% endblock %}</title>
+  <meta property="wb:webmaster" content="45bcaca04fd96c81" />
+  <title>{% block pagetitle %}Jun [Jun Seki]{% endblock %}</title>
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   {% if RSS_FEED_ENABLED %}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ RSS_FEED_URL }}" />
@@ -23,8 +24,8 @@
     <div class="picture">
       <a href="/" rel="home"></a>
     </div>
-    <h1>Jun G Seki</h1>
-    <h2>C#, Web & Mobile Developer + Entrepreneur; Co-Founder of <a href="http://poqstudio.com">Poq Studio</a></h2>
+     <h1>Jun G Seki</h1>
+    <h2>Mobile & Web Developer + Entrepreneur; Co-Founder of <a href="http://poqstudio.com">Poq Studio</a></h2>
   </hgroup>
   <nav>
     <ul class="main-nav">
@@ -32,8 +33,15 @@
        <li><a href="#" id="apps-link">Apps</a></li>
       <li><a href="http://twitter.com/#!/j_g_seki" id="twitter-link">Twitter</a></li>
       <li><a href="http://github.com/kiddomk" id="github-link">Github</a></li>
-     
-      <li><a href="http://instagr.am/p/M1rzg0ufSe/" id="instagram-link">Instagram</a></li>
+      <!-- <li><a href="http://dribbble.com/rigoneri" id="dribbble-link">Dribbble</a></li> -->
+      <li><a href="http://instagram.com/junny_s" id="instagram-link">Instagram</a></li>
+      <li><a href="http://lastfm.com/user/kiddomk" id="lastfm-link">Last.fm</a></li>
+      <li><a href="https://foursquare.com/j_g_seki" id="foursquare-link">Foursquare</a></li>
+      {% comment %}
+      <li><a href="http://junseki.tent.is" id="tent-link">Tent.io</a></li>
+      <li><a href="http://soundcloud.com/junny-g-s" id="soundcloud-link">Soundcloud</a></li>
+      <!-- <li><a href="http://bitbucket.org/rigoneri" id="bitbucket-link">Bitbucket</a></li> -->
+      {% endcomment %}
       <li><a href="mailto:jun@poqstudio.com?subject=Hello" id="contact-link">Contact</a></li>
     </ul>
   </nav>
@@ -48,16 +56,30 @@
   </span>
   <h3><a href="/">junseki.com</a></h3>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 var twitter_integration_enabled = {% if TWITTER_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
     github_integration_enabled = {% if GITHUB_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
     dribbble_integration_enabled = {% if DRIBBBLE_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
     instagram_integration_enabled = {% if INSTAGRAM_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
-    disqus_integration_enabled = {% if DISQUS_INTEGRATION_ENABLED %}true{% else %}false{% endif %};
+    lastfm_integration_enabled = {% if LASTFM_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    disqus_integration_enabled = {% if DISQUS_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    soundcloud_integration_enabled = {% if SOUNDCLOUD_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    bitbucket_integration_enabled = {% if BITBUCKET_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    foursquare_integration_enabled = {% if FOURSQUARE_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    disqus_integration_enabled = {% if DISQUS_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
+    tent_integration_enabled = {% if TENT_INTEGRATION_ENABLED %}true{% else %}false{% endif %};
+
 
 {% if DISQUS_INTEGRATION_ENABLED %}var disqus_shortname = '{{ DISQUS_SHORTNAME }}';{% endif %}
 </script>
+
+{% if TENT_INTEGRATION_ENABLED %}
+<script type="text/javascript">
+  var tent_entity_uri = '{{ TENT_ENTITY_URI }}';
+  var tent_feed_url = '{{ TENT_FEED_URL }}';
+</script>
+{% endif %}
 
 {% if DEV_DEPLOYMENT_MODE %}
 <script src="{{ MEDIA_URL }}js/libs/jquery.url.js"></script>
@@ -77,8 +99,12 @@ var twitter_integration_enabled = {% if TWITTER_INTEGRATION_ENABLED %}true{% els
 {% if GITHUB_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/github.js"></script>{% endif %}
 {% if DRIBBBLE_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/dribbble.js"></script>{% endif %}
 {% if INSTAGRAM_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/instagram.js"></script>{% endif %}
+{% if LASTFM_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/lastfm.js"></script>{% endif %}
+{% if BITBUCKET_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/bitbucket.js"></script>{% endif %}
 {% if DISQUS_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/disqus.js"></script>{% endif %}
-
+{% if SOUNDCLOUD_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/soundcloud.js"></script>{% endif %}
+{% if FOURSQUARE_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/foursquare.js"></script>{% endif %}
+{% if TENT_INTEGRATION_ENABLED %}<script src="{{ MEDIA_URL }}js/components/tent.js"></script>{% endif %}
 {% else %}
 <script src="{{ MEDIA_URL }}js/min/scripts-{{ COMPRESS_REVISION_NUMBER }}.min.js"></script>
 {% endif %}
@@ -86,6 +112,29 @@ var twitter_integration_enabled = {% if TWITTER_INTEGRATION_ENABLED %}true{% els
 {% block extra_js %}{% endblock %}
 <script type="text/javascript">
 {% block extra_inline_js %}{% endblock %}
+
+{% if WOOPRA_TRACKING_DOMAIN %}
+// Start of woopra code
+function woopraReady(tracker) {
+    tracker.setDomain("{{WOOPRA_TRACKING_DOMAIN}}");
+    tracker.setIdleTimeout({{WOOPRA_TRACKING_IDLE_TIMEOUT}});
+    {% if WOOPRA_INCLUDE_QUERY %}
+    tracker.trackPageview({type:'pageview',url:window.location.pathname+window.location.search,title:document.title});
+    {% else %}
+    tracker.track();
+    {% endif %}
+    return false;
+}
+(function() {
+    var wsc = document.createElement('script');
+    wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
+    wsc.type = 'text/javascript';
+    wsc.async = true;
+    var ssc = document.getElementsByTagName('script')[0];
+    ssc.parentNode.insertBefore(wsc, ssc);
+})();
+// End of woopra code
+{% endif %}
 
 {% if GOOGLE_ANALYTICS_TRACKING_ID %}
 var _gaq = _gaq || [];
@@ -99,6 +148,4 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 {% endif %}
 </script>
 </body>
-
-
-
+</html>
